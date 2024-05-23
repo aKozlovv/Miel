@@ -1,7 +1,7 @@
 import UIKit
 
 @resultBuilder
-struct LayoutBuilder {
+public struct LayoutBuilder {
     
     public static func buildBlock(_ content: FinalPrototype...) -> [NSLayoutConstraint] {
         content.compactMap { $0.build() }
