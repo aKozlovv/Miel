@@ -1,7 +1,11 @@
 import UIKit
 
+/// First step of layout building procces.
+/// This struct just simply wrap up a native NSLayoutConstraint.Attribute.
+/// Wrapping up allows to move to the second building stage
+/// Prototype -> AttrubutedPrototype
 public struct Prototype {
-    
+
     var item: UIView
     
 }

@@ -12,7 +12,7 @@ struct LayoutBuilder {
     }
 }
 
-struct Layout {
+public struct Layout {
     
     @discardableResult
     public init(@LayoutBuilder _ build: () -> [NSLayoutConstraint]) {

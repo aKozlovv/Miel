@@ -17,9 +17,10 @@ public class FinalPrototype {
     
     // MARK: - Init
     
-    init(_ first: AttributedPrototype,
-         relation: NSLayoutConstraint.Relation,
-         to second: RelationObject)
+    public init(
+        _ first: AttributedPrototype,
+        relation: NSLayoutConstraint.Relation,
+        to second: RelationObject)
     {
         self.firstItem = first
         self.secondItem = second
@@ -32,13 +33,28 @@ public class FinalPrototype {
         var constraint: NSLayoutConstraint!
         
         if let secondView = secondItem as? UIView {
-            constraint = .init(item: firstItem.item, attribute: firstItem.attribute, relatedBy: relation, toItem: secondView, attribute: firstItem.attribute, multiplier: multiplier, constant: constant)
+            constraint = .init(
+                item: firstItem.item,
+                attribute: firstItem.attribute,
+                relatedBy: relation,
+                toItem: secondView,
+                attribute: firstItem.attribute,
+                multiplier: multiplier,
+                constant: constant)
         }
         else if let secondPrototype = secondItem as? AttributedPrototype {
-            constraint = .init(item: firstItem.item, attribute: firstItem.attribute, relatedBy: relation, toItem: secondPrototype.item, attribute: secondPrototype.attribute, multiplier: multiplier, constant: constant)
+            constraint = .init(
+                item: firstItem.item,
+                attribute: firstItem.attribute,
+                relatedBy: relation,
+                toItem: secondPrototype.item,
+                attribute: secondPrototype.attribute,
+                multiplier: multiplier,
+                constant: constant)
         }
         else {
             var cgFloat: CGFloat!
+            
             if let secondInt = secondItem as? Int {
                 cgFloat = CGFloat(secondInt)
             }
@@ -49,7 +65,14 @@ public class FinalPrototype {
                 cgFloat = (secondItem as! CGFloat)
             }
             
-            constraint = .init(item: firstItem.item, attribute: firstItem.attribute, relatedBy: relation, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: cgFloat)
+            constraint = .init(
+                item: firstItem.item,
+                attribute: firstItem.attribute,
+                relatedBy: relation,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: multiplier,
+                constant: cgFloat)
         }
         constraint.identifier = identifier
         constraint.priority = priority
