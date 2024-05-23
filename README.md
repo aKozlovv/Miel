@@ -54,15 +54,30 @@ button.buildLayout { prototype in
 ```
 This library has been designed for more elegant use. The library provides a Layout structure that allows you to describe constraints for any View within a closure. Example:
 ```sh
-public extension Animation {
-    static func fadeIn(duration: TimeInterval = 0.3) -> Animation {
-        Animation(duration: duration, closure: { $0.alpha = 1 })
-    }
-}
-
-public extension Animation {
-    static func resize(to size: CGSize, duration: TimeInterval = 0.3) -> Animation {
-        Animation(duration: duration, closure: { $0.bounds.size = size })
-    }
-}
+Layout {
+            label.layout
+                .top
+                .equal(to: view.layout.top)
+                .constant(50)
+            
+            label.layout
+                .width
+                .equal(to: view.bounds.size.width / 2)
+            
+            button.layout
+                .top
+                .equal(to: label.layout.bottom)
+                .constant(15)
+            
+            button.layout
+                .leading
+                .equal(to: view.layout.leading)
+                .constant(15)
+            
+            button.layout
+                .trailing
+                .equal(to: view.layout.trailing)
+                .constant(-15)
+        }
 ```
+
