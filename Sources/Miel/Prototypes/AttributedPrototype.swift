@@ -21,4 +21,9 @@ public struct AttributedPrototype {
          FinalPrototype(self, relation: .lessThanOrEqual, to: item)
      }
     
+    public init(item: UIView, attribute: NSLayoutConstraint.Attribute) {
+        self.item = item
+        self.attribute = attribute
+    }
+    
 }

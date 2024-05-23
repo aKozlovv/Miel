@@ -10,6 +10,8 @@ public struct LayoutBuilder {
     public static func buildBlock(_ content: [FinalPrototype]) -> [NSLayoutConstraint] {
         content.compactMap { $0.build() }
     }
+    
+    public init() {}
 }
 
 public struct Layout {
@@ -23,5 +25,3 @@ public struct Layout {
         NSLayoutConstraint.activate(constraints)
     }
 }
-
-
